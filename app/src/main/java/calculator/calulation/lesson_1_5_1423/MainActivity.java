@@ -1,5 +1,6 @@
 package calculator.calulation.lesson_1_5_1423;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editText1;
 
     public static final String KEY_MESSAGE = "message";
+    public static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,SecondActivity.class);
                 String message = "Мое сообщение: "+editText1.getText();
                 i.putExtra(KEY_MESSAGE, message);
-                startActivity(i);
+                //startActivity(i);
+                startActivityForResult(i,REQUEST_CODE);
             }
         });
 
@@ -44,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode==RESULT_OK)
+        if(requestCode==REQUEST_CODE){
+            String message = data.getExtras().getString(MainActivity.KEY_MESSAGE);
+            editText1.setText("onActivityResult WORK "+message);
+        }
+
+    }
+
     void another(){
         //button1
     }

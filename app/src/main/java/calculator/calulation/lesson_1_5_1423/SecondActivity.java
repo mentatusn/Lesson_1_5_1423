@@ -22,11 +22,12 @@ public class SecondActivity extends AppCompatActivity {
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(SecondActivity.this,MainActivity.class);
+            public void onClick(View v) { Intent i = new Intent(SecondActivity.this,MainActivity.class);
                 String message = "Мое сообщение: "+editText2.getText();
                 i.putExtra(MainActivity.KEY_MESSAGE, message);
-                startActivity(i);
+                //startActivity(i);
+                setResult(RESULT_OK,i);
+                finish();
             }
         });
 
