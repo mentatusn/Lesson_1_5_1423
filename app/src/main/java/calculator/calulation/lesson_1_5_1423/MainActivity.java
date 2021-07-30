@@ -1,6 +1,5 @@
 package calculator.calulation.lesson_1_5_1423;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,SecondActivity.class);
-                String message = "Мое сообщение: "+editText1.getText();
-                i.putExtra(KEY_MESSAGE, message);
+                String strMssage = "Мое сообщение: "+editText1.getText();
+                Message messageObj = new Message();
+                messageObj.setMessage(strMssage);
+                i.putExtra(KEY_MESSAGE, messageObj);
                 //startActivity(i);
                 startActivityForResult(i,REQUEST_CODE);
             }

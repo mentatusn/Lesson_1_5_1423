@@ -37,7 +37,8 @@ public class SecondActivity extends AppCompatActivity {
 
 
         if(extras!=null){
-            String message = extras.getString(MainActivity.KEY_MESSAGE);
+            Message messageObj = extras.getParcelable(MainActivity.KEY_MESSAGE);
+            String message = messageObj.getMessage();
             editText2.setText(message);
         }
 
