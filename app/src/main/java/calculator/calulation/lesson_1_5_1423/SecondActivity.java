@@ -20,6 +20,8 @@ public class SecondActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         editText2 = findViewById(R.id.editText2);
 
+
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { Intent i = new Intent(SecondActivity.this,MainActivity.class);

@@ -9,12 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lesson_1_5_1423">
-       <activity android:name=".SecondActivity"/>
+        <activity android:name=".InterceptActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="mailto" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="runCalcEugen"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>

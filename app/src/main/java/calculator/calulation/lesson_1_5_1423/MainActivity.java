@@ -3,8 +3,11 @@ package calculator.calulation.lesson_1_5_1423;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-
+/*
         button1 = findViewById(R.id.button1);
         editText1 = findViewById(R.id.editText1);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +48,31 @@ public class MainActivity extends AppCompatActivity {
         if(extras!=null){
             String message = extras.getString(MainActivity.KEY_MESSAGE);
             editText1.setText(message);
-        }
+        }*/
+
+
+
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("txt"));
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("jpg"));
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("tif"));
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("mp3"));
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("webp"));
+        Log.d("mylogs", MimeTypeMap.getSingleton().getMimeTypeFromExtension("svg"));
+
+        button1 = findViewById(R.id.button1);
+        editText1 = findViewById(R.id.editText1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT,"subject");
+                i.putExtra(Intent.EXTRA_TEXT,"text text text ");
+                //startActivity(Intent.createChooser(i,"КРАСИВЫЙ"));
+                startActivity(i);
+            }
+        });
 
     }
 
